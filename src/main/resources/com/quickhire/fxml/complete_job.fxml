@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.quickhire.ui.MasterController"
+      stylesheets="@../css/styles.css" prefWidth="1000" prefHeight="660">
+
+    <VBox fx:id="sidebarContainer" styleClass="sidebar"/>
+
+    <ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true"
+                style="-fx-background-color: #F5F0E8; -fx-background: #F5F0E8;">
+        <VBox style="-fx-background-color: #F5F0E8; -fx-padding: 28 32; -fx-spacing: 14;"
+              prefWidth="720">
+
+            <Label text="Complete Job &amp; Generate Invoice" styleClass="top-bar-title"/>
+
+            <!-- Phase 1: entry panel -->
+            <VBox fx:id="entryPanel" spacing="14">
+
+                <HBox alignment="CENTER_LEFT" spacing="12" styleClass="section-card"
+                      style="-fx-padding: 12 16;">
+                    <Label text="Select your IN PROGRESS job:" styleClass="form-label"/>
+                    <ComboBox fx:id="jobCombo" prefWidth="300" promptText="-- select a job --"/>
+                </HBox>
+
+                <VBox fx:id="jobInfoBox" visible="false" managed="false"
+                      styleClass="section-card" spacing="5">
+                    <Label fx:id="jobTitleLabel"
+                           style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #1B2B2B;"/>
+                    <Label fx:id="jobRateLabel"
+                           style="-fx-text-fill: #C9A84C; -fx-font-weight: bold;"/>
+                    <Label fx:id="jobLocationLabel" style="-fx-text-fill: #5A6A6A;"/>
+                </VBox>
+
+                <VBox styleClass="section-card" spacing="10">
+                    <Label text="Hours Worked *" styleClass="form-label"/>
+                    <TextField fx:id="hoursField" promptText="e.g. 3.5" prefWidth="220"/>
+
+                    <Label text="Supply Cost — PKR (enter 0 if none) *" styleClass="form-label"/>
+                    <TextField fx:id="supplyCostField" promptText="e.g. 250" prefWidth="220"/>
+                </VBox>
+
+                <Label fx:id="entryErrorLabel" styleClass="error-label" wrapText="true"/>
+
+                <!-- SINGLE button row — Generate + Challenge Dispute + Back -->
+                <HBox spacing="12">
+                    <Button text="Generate Invoice Preview"
+                            onAction="#handleGenerateInvoice"
+                            styleClass="btn-primary"/>
+                    <Button text="⚖️ Challenge Dispute"
+                            onAction="#handleViewDispute"
+                            style="-fx-background-color: #C0392B; -fx-text-fill: white;
+                                   -fx-background-radius: 8; -fx-padding: 9 18;
+                                   -fx-font-weight: bold; -fx-cursor: hand;"/>
+                    <Button text="Back to Dashboard"
+                            onAction="#handleBack"
+                            styleClass="btn-secondary"/>
+                </HBox>
+
+            </VBox>
+
+            <!-- Phase 2: Invoice preview -->
+            <VBox fx:id="previewPanel" visible="false" managed="false"
+                  style="-fx-background-color: white; -fx-padding: 24;
+                         -fx-background-radius: 10;
+                         -fx-effect: dropshadow(gaussian,rgba(0,0,0,0.08),12,0,0,4);
+                         -fx-spacing: 10; -fx-border-color: #C9A84C;
+                         -fx-border-radius: 10; -fx-border-width: 2;">
+
+                <Label text="Invoice Preview"
+                       style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #C9A84C;"/>
+                <Separator style="-fx-opacity:0.4;"/>
+
+                <HBox spacing="10">
+                    <Label text="Job:"
+                           style="-fx-font-weight: bold; -fx-min-width: 130; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="previewJobTitle" style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Hours Worked:"
+                           style="-fx-font-weight: bold; -fx-min-width: 130; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="previewHours" style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Hourly Rate:"
+                           style="-fx-font-weight: bold; -fx-min-width: 130; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="previewRate" style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Labour Cost:"
+                           style="-fx-font-weight: bold; -fx-min-width: 130; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="previewLabour" style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Supply Cost:"
+                           style="-fx-font-weight: bold; -fx-min-width: 130; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="previewSupply" style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <Separator style="-fx-opacity:0.4;"/>
+                <HBox spacing="10">
+                    <Label text="TOTAL AMOUNT:"
+                           style="-fx-font-weight: bold; -fx-min-width: 130;
+                                  -fx-font-size: 15px; -fx-text-fill: #1B3A3A;"/>
+                    <Label fx:id="previewTotal"
+                           style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #C9A84C;"/>
+                </HBox>
+
+                <Label fx:id="previewErrorLabel" styleClass="error-label" wrapText="true"/>
+
+                <HBox spacing="12" style="-fx-padding: 4 0 0 0;">
+                    <Button text="Confirm &amp; Submit Invoice"
+                            onAction="#handleConfirmInvoice"
+                            styleClass="btn-primary"/>
+                    <Button text="Edit Figures"
+                            onAction="#handleEditFigures"
+                            styleClass="btn-secondary"/>
+                </HBox>
+
+            </VBox>
+        </VBox>
+    </ScrollPane>
+</HBox>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.quickhire.ui.MasterController"
+      stylesheets="@../css/styles.css" prefWidth="1000" prefHeight="660">
+
+    <VBox fx:id="sidebarContainer" styleClass="sidebar"/>
+
+    <ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true"
+                style="-fx-background-color: #F5F0E8; -fx-background: #F5F0E8;">
+        <VBox style="-fx-background-color: #F5F0E8; -fx-padding: 28 32; -fx-spacing: 14;" prefWidth="720">
+
+            <Label text="Rate &amp; Review" styleClass="top-bar-title"/>
+
+            <HBox alignment="CENTER_LEFT" spacing="12" styleClass="section-card" style="-fx-padding: 12 16;">
+                <Label text="Select a completed (SETTLED) job:" styleClass="form-label"/>
+                <ComboBox fx:id="jobCombo" prefWidth="300" promptText="-- select a job --"/>
+            </HBox>
+
+            <VBox fx:id="reviewPanel" visible="false" managed="false"
+                  styleClass="section-card" spacing="12">
+
+                <Label fx:id="counterpartyLabel"
+                       style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #1B2B2B;"/>
+                <Separator style="-fx-opacity:0.4;"/>
+
+                <Label text="Your Rating (1–5 stars) *" styleClass="form-label"/>
+                <HBox spacing="20">
+                    <RadioButton fx:id="star1" text="1 ★" userData="1"
+                                 style="-fx-font-size: 14px; -fx-text-fill: #C9A84C;"/>
+                    <RadioButton fx:id="star2" text="2 ★" userData="2"
+                                 style="-fx-font-size: 14px; -fx-text-fill: #C9A84C;"/>
+                    <RadioButton fx:id="star3" text="3 ★" userData="3"
+                                 style="-fx-font-size: 14px; -fx-text-fill: #C9A84C;"/>
+                    <RadioButton fx:id="star4" text="4 ★" userData="4"
+                                 style="-fx-font-size: 14px; -fx-text-fill: #C9A84C;"/>
+                    <RadioButton fx:id="star5" text="5 ★" userData="5"
+                                 style="-fx-font-size: 14px; -fx-text-fill: #C9A84C;"/>
+                </HBox>
+
+                <Label text="Comment (optional):" styleClass="form-label"/>
+                <TextArea fx:id="commentArea" promptText="Write a short review..."
+                          prefRowCount="3" wrapText="true"/>
+
+                <Label fx:id="alreadyReviewedLabel"
+                       style="-fx-text-fill: #1E7A50; -fx-font-weight: bold;"
+                       visible="false" managed="false" wrapText="true"/>
+                <Label fx:id="reviewErrorLabel" styleClass="error-label" wrapText="true"/>
+
+                <Button fx:id="submitBtn" text="Submit Review"
+                        onAction="#handleSubmitReview" styleClass="btn-primary"/>
+            </VBox>
+
+            <Label fx:id="statusLabel" style="-fx-text-fill: #7A8A8A; -fx-font-size: 12px;" wrapText="true"/>
+            <Button text="Back to Dashboard" onAction="#handleBack" styleClass="btn-secondary"/>
+        </VBox>
+    </ScrollPane>
+</HBox>

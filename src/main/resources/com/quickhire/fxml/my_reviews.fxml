@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.quickhire.ui.MasterController"
+      stylesheets="@../css/styles.css" prefWidth="1000" prefHeight="660">
+
+    <VBox fx:id="sidebarContainer" styleClass="sidebar"/>
+
+    <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #F5F0E8; -fx-padding: 28 28 16 28; -fx-spacing: 14;">
+
+        <Label text="Reviews About Me" styleClass="top-bar-title"/>
+
+        <!-- Summary card -->
+        <HBox styleClass="section-card"
+              style="-fx-spacing: 30; -fx-alignment: CENTER_LEFT; -fx-padding: 18 24;">
+            <VBox alignment="CENTER" spacing="4">
+                <Label text="Overall Rating" style="-fx-text-fill: #7A8A8A; -fx-font-size: 12px;"/>
+                <Label fx:id="overallRatingLabel"
+                       style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #C9A84C;"/>
+                <Label text="out of 5.00" style="-fx-text-fill: #AAAAAA; -fx-font-size: 11px;"/>
+            </VBox>
+            <Separator orientation="VERTICAL" style="-fx-opacity:0.3;"/>
+            <VBox alignment="CENTER" spacing="4">
+                <Label text="Total Reviews" style="-fx-text-fill: #7A8A8A; -fx-font-size: 12px;"/>
+                <Label fx:id="totalReviewsLabel"
+                       style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #1B3A3A;"/>
+            </VBox>
+            <Separator orientation="VERTICAL" style="-fx-opacity:0.3;"/>
+            <VBox alignment="CENTER" spacing="4">
+                <Label text="Reviewed As" style="-fx-text-fill: #7A8A8A; -fx-font-size: 12px;"/>
+                <Label fx:id="roleLabel"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #3A4A4A;"/>
+            </VBox>
+        </HBox>
+
+        <Label text="Individual Reviews:" styleClass="form-label"/>
+
+        <TableView fx:id="reviewsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="reviewerCol" text="Reviewed By" prefWidth="160"/>
+                <TableColumn fx:id="ratingCol"   text="Rating"      prefWidth="80"/>
+                <TableColumn fx:id="starsCol"    text="Stars"       prefWidth="110"/>
+                <TableColumn fx:id="commentCol"  text="Comment"     prefWidth="310"/>
+                <TableColumn fx:id="dateCol"     text="Date"        prefWidth="130"/>
+            </columns>
+            <placeholder>
+                <Label text="No reviews yet. Complete a job to start receiving reviews."
+                       style="-fx-text-fill: #AAAAAA;"/>
+            </placeholder>
+        </TableView>
+
+        <Label fx:id="statusLabel" style="-fx-text-fill: #7A8A8A; -fx-font-size: 12px;" wrapText="true"/>
+
+        <Button text="← Back to My Profile" onAction="#handleBack" styleClass="btn-secondary"/>
+    </VBox>
+</HBox>

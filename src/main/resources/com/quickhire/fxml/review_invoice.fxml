@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.quickhire.ui.MasterController"
+      stylesheets="@../css/styles.css" prefWidth="1000" prefHeight="660">
+
+    <VBox fx:id="sidebarContainer" styleClass="sidebar"/>
+
+    <ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true"
+                style="-fx-background-color: #F5F0E8; -fx-background: #F5F0E8;">
+        <VBox style="-fx-background-color: #F5F0E8; -fx-padding: 28 32; -fx-spacing: 14;"
+              prefWidth="720">
+
+            <Label text="Review Invoice &amp; Settle Payment" styleClass="top-bar-title"/>
+
+            <HBox alignment="CENTER_LEFT" spacing="12" styleClass="section-card"
+                  style="-fx-padding: 12 16;">
+                <Label text="Select a PENDING PAYMENT job:" styleClass="form-label"/>
+                <ComboBox fx:id="jobCombo" prefWidth="320" promptText="-- select a job --"/>
+            </HBox>
+
+            <!-- Invoice details -->
+            <VBox fx:id="invoiceDetailsBox" visible="false" managed="false"
+                  styleClass="section-card" spacing="10">
+                <Label text="Invoice Details"
+                       style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #1B2B2B;"/>
+                <Separator style="-fx-opacity:0.4;"/>
+                <HBox spacing="10">
+                    <Label text="Job:"          style="-fx-font-weight: bold; -fx-min-width: 140; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="detailJobTitle" style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Hours Worked:" style="-fx-font-weight: bold; -fx-min-width: 140; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="detailHours"  style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Hourly Rate:"  style="-fx-font-weight: bold; -fx-min-width: 140; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="detailRate"   style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Supply Cost:"  style="-fx-font-weight: bold; -fx-min-width: 140; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="detailSupply" style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <Separator style="-fx-opacity:0.4;"/>
+                <HBox spacing="10">
+                    <Label text="TOTAL AMOUNT:" style="-fx-font-weight: bold; -fx-min-width: 140; -fx-font-size: 15px; -fx-text-fill: #1B3A3A;"/>
+                    <Label fx:id="detailTotal"  style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #C9A84C;"/>
+                </HBox>
+            </VBox>
+
+            <!-- Challenge panel — shown when seeker has countered -->
+            <VBox fx:id="challengePanel" visible="false" managed="false"
+                  style="-fx-background-color: #FFF8E8; -fx-padding: 18;
+                         -fx-background-radius: 10;
+                         -fx-border-color: #C9A84C; -fx-border-radius: 10;
+                         -fx-border-width: 2; -fx-spacing: 10;">
+                <Label text="⚖️  Seeker's Counter-Argument"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #8A6A00;"/>
+                <Label fx:id="challengeReasonLabel"  wrapText="true"
+                       style="-fx-text-fill: #3A3A3A;"/>
+                <Label fx:id="challengeAmountLabel"
+                       style="-fx-font-weight: bold; -fx-text-fill: #1B3A3A; -fx-font-size: 14px;"/>
+                <HBox spacing="12" style="-fx-padding: 6 0 0 0;">
+                    <Button fx:id="acceptProposedBtn" text="Accept Proposed Amount"
+                            onAction="#handleAcceptProposed"
+                            style="-fx-background-color: #1E7A50; -fx-text-fill: white;
+                                   -fx-font-weight: bold; -fx-background-radius: 8;
+                                   -fx-padding: 9 18;"/>
+                    <Button fx:id="reDisputeBtn" text="Re-Dispute"
+                            onAction="#handleReDispute"
+                            style="-fx-background-color: #C0392B; -fx-text-fill: white;
+                                   -fx-background-radius: 8; -fx-padding: 9 18;
+                                   -fx-font-weight: bold;"/>
+                </HBox>
+            </VBox>
+
+            <Label fx:id="statusLabel" style="-fx-text-fill: #7A8A8A; -fx-font-size: 12px;"
+                   wrapText="true"/>
+
+            <HBox spacing="12">
+                <Button fx:id="approveBtn" text="Approve &amp; Pay"
+                        onAction="#handleApprove" styleClass="btn-primary" disable="true"/>
+                <Button fx:id="disputeBtn" text="Dispute Invoice"
+                        onAction="#handleDispute"
+                        style="-fx-background-color: #C0392B; -fx-text-fill: white;
+                               -fx-background-radius: 8; -fx-padding: 9 24;
+                               -fx-font-weight: bold; -fx-cursor: hand;"
+                        disable="true"/>
+                <Button text="Back to Dashboard" onAction="#handleBack"
+                        styleClass="btn-secondary"/>
+            </HBox>
+
+        </VBox>
+    </ScrollPane>
+</HBox>

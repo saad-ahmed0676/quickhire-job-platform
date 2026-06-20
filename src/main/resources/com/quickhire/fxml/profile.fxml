@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.quickhire.ui.MasterController"
+      stylesheets="@../css/styles.css" prefWidth="1000" prefHeight="660">
+
+    <VBox fx:id="sidebarContainer" styleClass="sidebar"/>
+
+    <ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true"
+                style="-fx-background-color: #F5F0E8; -fx-background: #F5F0E8;">
+        <VBox style="-fx-background-color: #F5F0E8; -fx-padding: 28 32; -fx-spacing: 14;" prefWidth="720">
+
+            <Label text="My Profile" styleClass="top-bar-title"/>
+
+            <!-- Info card -->
+            <VBox styleClass="section-card" spacing="10">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Name:"    style="-fx-font-weight: bold; -fx-min-width: 120; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="nameLabel"   style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Email:"   style="-fx-font-weight: bold; -fx-min-width: 120; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="emailLabel"  style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Role:"    style="-fx-font-weight: bold; -fx-min-width: 120; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="roleLabel"   style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Rating:"  style="-fx-font-weight: bold; -fx-min-width: 120; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="ratingLabel" style="-fx-text-fill: #C9A84C; -fx-font-weight: bold;"/>
+                </HBox>
+            </VBox>
+
+            <!-- Editable fields -->
+            <VBox styleClass="section-card" spacing="10">
+                <Label text="Bio:" styleClass="form-label"/>
+                <TextArea fx:id="bioArea" promptText="Tell others about yourself..."
+                          prefRowCount="3" wrapText="true"/>
+
+                <Label text="Contact Details:" styleClass="form-label"/>
+                <TextField fx:id="contactField" promptText="Phone number or other contact info"/>
+
+                <Label fx:id="skillsHeaderLabel" text="Skills (comma-separated):" styleClass="form-label"/>
+                <TextField fx:id="skillsField" promptText="e.g. Cleaning, Cooking, Driving"/>
+            </VBox>
+
+            <Label fx:id="errorLabel" styleClass="error-label" wrapText="true"/>
+
+            <HBox spacing="12">
+                <Button text="Save Changes"    onAction="#handleSave"         styleClass="btn-primary"/>
+                <Button text="View My Reviews" onAction="#handleViewReviews"  styleClass="btn-primary"/>
+                <Button text="Back to Dashboard" onAction="#handleBack"       styleClass="btn-secondary"/>
+            </HBox>
+        </VBox>
+    </ScrollPane>
+</HBox>

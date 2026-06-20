@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.quickhire.ui.MasterController"
+      stylesheets="@../css/styles.css" prefWidth="1000" prefHeight="660">
+
+    <VBox fx:id="sidebarContainer" styleClass="sidebar"/>
+
+    <ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true"
+                style="-fx-background-color: #F5F0E8; -fx-background: #F5F0E8;">
+        <VBox style="-fx-background-color: #F5F0E8; -fx-padding: 28 32; -fx-spacing: 14;" prefWidth="720">
+
+            <Label text="Manage My Job Postings" styleClass="top-bar-title"/>
+
+            <TableView fx:id="jobsTable" prefHeight="230">
+                <columns>
+                    <TableColumn fx:id="titleCol"    text="Title"    prefWidth="170"/>
+                    <TableColumn fx:id="categoryCol" text="Category" prefWidth="100"/>
+                    <TableColumn fx:id="locationCol" text="Location" prefWidth="130"/>
+                    <TableColumn fx:id="rateCol"     text="Rate/hr"  prefWidth="80"/>
+                    <TableColumn fx:id="statusCol"   text="Status"   prefWidth="120"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="12">
+                <Button fx:id="editBtn"   text="Edit Selected Job"
+                        onAction="#handleEdit"      styleClass="btn-primary"  disable="true"/>
+                <Button fx:id="cancelBtn" text="Cancel Selected Job"
+                        onAction="#handleCancelJob"
+                        style="-fx-background-color: #C0392B; -fx-text-fill: white;
+                               -fx-background-radius: 8; -fx-padding: 9 24; -fx-font-weight: bold;"
+                        disable="true"/>
+                <Button text="Back to Dashboard" onAction="#handleBack" styleClass="btn-secondary"/>
+            </HBox>
+
+            <Label fx:id="statusLabel" style="-fx-text-fill: #7A8A8A; -fx-font-size: 12px;" wrapText="true"/>
+
+            <!-- Edit form -->
+            <VBox fx:id="editForm" visible="false" managed="false"
+                  style="-fx-background-color: white; -fx-padding: 20;
+                         -fx-background-radius: 10;
+                         -fx-effect: dropshadow(gaussian,rgba(0,0,0,0.08),12,0,0,4);
+                         -fx-spacing: 10; -fx-border-color: #C9A84C;
+                         -fx-border-radius: 10; -fx-border-width: 2;">
+
+                <Label text="Edit Job Details"
+                       style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #C9A84C;"/>
+                <Separator style="-fx-opacity:0.4;"/>
+
+                <Label text="Title *"          styleClass="form-label"/>
+                <TextField fx:id="editTitle"/>
+                <Label text="Category *"       styleClass="form-label"/>
+                <ComboBox fx:id="editCategory" maxWidth="Infinity"/>
+                <Label text="Location *"       styleClass="form-label"/>
+                <TextField fx:id="editLocation"/>
+                <Label text="Hourly Rate (PKR) *" styleClass="form-label"/>
+                <TextField fx:id="editRate"/>
+                <Label text="Description *"    styleClass="form-label"/>
+                <TextArea fx:id="editDescription" prefRowCount="3" wrapText="true"/>
+
+                <Label fx:id="editErrorLabel" styleClass="error-label" wrapText="true"/>
+
+                <HBox spacing="12">
+                    <Button text="Save Changes" onAction="#handleSaveEdit"   styleClass="btn-primary"/>
+                    <Button text="Discard"      onAction="#handleDiscardEdit" styleClass="btn-secondary"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </ScrollPane>
+</HBox>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.quickhire.ui.MasterController"
+      stylesheets="@../css/styles.css" prefWidth="1000" prefHeight="660">
+
+    <VBox fx:id="sidebarContainer" styleClass="sidebar"/>
+
+    <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #F5F0E8; -fx-padding: 28 28 16 28; -fx-spacing: 14;">
+
+        <Label text="Find Jobs" styleClass="top-bar-title"/>
+
+        <!-- Filter bar -->
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="section-card"
+              style="-fx-padding: 12 16;">
+            <Label text="Category:" styleClass="form-label"/>
+            <ComboBox fx:id="categoryFilter" promptText="All" prefWidth="130"/>
+            <Label text="Location:" styleClass="form-label"/>
+            <TextField fx:id="locationFilter" promptText="Search location..." prefWidth="160"/>
+            <Label text="Min Rate (PKR):" styleClass="form-label"/>
+            <TextField fx:id="minRateField" promptText="0" prefWidth="80"/>
+            <Button text="Search"   onAction="#handleSearch"  styleClass="btn-primary"/>
+            <Button text="Show All" onAction="#handleShowAll" styleClass="btn-secondary"/>
+        </HBox>
+
+        <Label fx:id="statusLabel" style="-fx-text-fill: #7A8A8A; -fx-font-size: 12px;"/>
+
+        <TableView fx:id="jobsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="titleCol"    text="Title"         prefWidth="200"/>
+                <TableColumn fx:id="categoryCol" text="Category"      prefWidth="110"/>
+                <TableColumn fx:id="locationCol" text="Location"      prefWidth="150"/>
+                <TableColumn fx:id="rateCol"     text="Rate/hr (PKR)" prefWidth="110"/>
+                <TableColumn fx:id="providerCol" text="Posted By"     prefWidth="140"/>
+            </columns>
+        </TableView>
+
+        <Button text="View &amp; Apply for Selected Job" onAction="#handleApply"
+                styleClass="btn-primary"/>
+    </VBox>
+</HBox>

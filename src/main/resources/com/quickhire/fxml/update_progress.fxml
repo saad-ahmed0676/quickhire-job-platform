@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.quickhire.ui.MasterController"
+      stylesheets="@../css/styles.css" prefWidth="1000" prefHeight="660">
+
+    <VBox fx:id="sidebarContainer" styleClass="sidebar"/>
+
+    <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #F5F0E8; -fx-padding: 28 28 16 28; -fx-spacing: 14;">
+
+        <Label text="Update Job Progress" styleClass="top-bar-title"/>
+
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="section-card" style="-fx-padding: 12 16;">
+            <Label text="Select your IN PROGRESS job:" styleClass="form-label"/>
+            <ComboBox fx:id="jobCombo" prefWidth="320" promptText="-- select a job --"/>
+        </HBox>
+
+        <VBox styleClass="section-card" spacing="8" VBox.vgrow="ALWAYS">
+            <Label text="Progress History:" styleClass="form-label"/>
+            <ListView fx:id="updatesListView" VBox.vgrow="ALWAYS"
+                      style="-fx-background-color: #FAF7F2; -fx-border-color: #E8E0D0;
+                             -fx-border-radius: 6; -fx-background-radius: 6;"/>
+        </VBox>
+
+        <VBox styleClass="section-card" spacing="8">
+            <Label text="Add New Update:" styleClass="form-label"/>
+            <TextArea fx:id="noteArea" promptText="Describe what you have done so far..."
+                      prefRowCount="3" wrapText="true"/>
+        </VBox>
+
+        <Label fx:id="statusLabel" style="-fx-text-fill: #7A8A8A; -fx-font-size: 12px;" wrapText="true"/>
+
+        <HBox spacing="12">
+            <Button text="Submit Update"     onAction="#handleSubmitUpdate" styleClass="btn-primary"/>
+            <Button text="Back to Dashboard" onAction="#handleBack"         styleClass="btn-secondary"/>
+        </HBox>
+    </VBox>
+</HBox>

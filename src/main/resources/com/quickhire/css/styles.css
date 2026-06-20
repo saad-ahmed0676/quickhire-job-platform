@@ -1,0 +1,498 @@
+/* ============================================================
+   QuickHire — Global Stylesheet  (Warm Gold / Teal Theme)
+   ============================================================ */
+
+/* ── Palette
+   Sidebar BG   : #1B3A3A  (deep teal)
+   Active Nav   : #C9A84C  (gold)
+   Page BG      : #F5F0E8  (warm cream)
+   Card BG      : #FFFFFF
+   Primary Gold : #C9A84C
+   Primary Dark : #1B3A3A
+   Text Dark    : #1B2B2B
+   Text Muted   : #7A8A8A
+   ─────────────────────────────────────────── */
+
+/* ── ROOT ── */
+.root {
+    -fx-background-color: #F5F0E8;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* ════════════════════════════════════════════
+   SIDEBAR
+   ════════════════════════════════════════════ */
+.sidebar {
+    -fx-background-color: #1B3A3A;
+    -fx-min-width: 220px;
+    -fx-max-width: 220px;
+    -fx-padding: 0;
+}
+
+.sidebar-logo {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 28 20 4 20;
+}
+
+.sidebar-tagline {
+    -fx-text-fill: #8AABA8;
+    -fx-font-size: 11px;
+    -fx-padding: 0 20 18 20;
+}
+
+.sidebar-divider {
+    -fx-border-color: #2E5555;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 0 8 0;
+    -fx-opacity: 0.5;
+}
+
+.sidebar-section-label {
+    -fx-text-fill: #6A9A96;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 16 20 4 20;
+    -fx-letter-spacing: 1px;
+}
+
+/* ── Nav buttons (inactive) ── */
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #C5D8D6;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 11 20 11 20;
+    -fx-cursor: hand;
+    -fx-pref-width: 220px;
+    -fx-min-width: 220px;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+}
+
+.nav-button:hover {
+    -fx-background-color: #264E4E;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* ── Active nav button ── */
+.nav-button-active {
+    -fx-background-color: #C9A84C;
+    -fx-text-fill: #1B3A3A;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 11 20 11 20;
+    -fx-cursor: hand;
+    -fx-pref-width: 220px;
+    -fx-min-width: 220px;
+    -fx-background-radius: 0;
+}
+
+/* ── Logout ── */
+.nav-button-logout {
+    -fx-background-color: transparent;
+    -fx-text-fill: #E07070;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 11 20 11 20;
+    -fx-cursor: hand;
+    -fx-pref-width: 220px;
+    -fx-min-width: 220px;
+    -fx-background-radius: 0;
+}
+
+.nav-button-logout:hover {
+    -fx-background-color: #3A2020;
+    -fx-text-fill: #FF8080;
+}
+
+/* ════════════════════════════════════════════
+   TOP BAR / PAGE HEADERS
+   ════════════════════════════════════════════ */
+.top-bar {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 14 28 14 28;
+    -fx-border-color: #E8E0D0;
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 2);
+}
+
+.top-bar-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1B2B2B;
+}
+
+.top-bar-user {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+
+.top-bar-role-badge {
+    -fx-background-color: #C9A84C;
+    -fx-text-fill: #1B3A3A;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 12 4 12;
+    -fx-background-radius: 14;
+}
+
+.top-bar-role-badge-provider {
+    -fx-background-color: #C9A84C;
+    -fx-text-fill: #1B3A3A;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 12 4 12;
+    -fx-background-radius: 14;
+}
+
+/* ════════════════════════════════════════════
+   BUTTONS
+   ════════════════════════════════════════════ */
+.btn-primary {
+    -fx-background-color: #C9A84C;
+    -fx-text-fill: #1B3A3A;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 9 24 9 24;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(201,168,76,0.3), 6, 0, 0, 2);
+}
+
+.btn-primary:hover {
+    -fx-background-color: #B8962E;
+    -fx-effect: dropshadow(gaussian, rgba(201,168,76,0.5), 8, 0, 0, 3);
+}
+
+.btn-primary:pressed {
+    -fx-background-color: #A07820;
+}
+
+.btn-primary:disabled {
+    -fx-background-color: #E0D0A0;
+    -fx-text-fill: #8A7A4A;
+    -fx-cursor: default;
+    -fx-effect: none;
+}
+
+.btn-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1B3A3A;
+    -fx-font-size: 13px;
+    -fx-padding: 9 24 9 24;
+    -fx-background-radius: 8;
+    -fx-border-color: #1B3A3A;
+    -fx-border-radius: 8;
+    -fx-border-width: 1.5;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #E8F0EE;
+}
+
+.btn-danger {
+    -fx-background-color: #C0392B;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-padding: 9 24 9 24;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #A93226;
+}
+
+.btn-success {
+    -fx-background-color: #1E7A50;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-padding: 9 24 9 24;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.btn-success:hover {
+    -fx-background-color: #165E3C;
+}
+
+/* ════════════════════════════════════════════
+   FORM FIELDS
+   ════════════════════════════════════════════ */
+.text-field, .password-field, .text-area, .combo-box {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #D8CEB8;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 9 13 9 13;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1B2B2B;
+    -fx-prompt-text-fill: #AAAAAA;
+}
+
+.text-field:focused, .password-field:focused,
+.text-area:focused, .combo-box:focused {
+    -fx-border-color: #C9A84C;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(201,168,76,0.2), 6, 0, 0, 0);
+}
+
+.form-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3A4A4A;
+    -fx-padding: 0 0 3 0;
+}
+
+.error-label {
+    -fx-text-fill: #C0392B;
+    -fx-font-size: 12px;
+    -fx-padding: 2 0 0 0;
+}
+
+/* ════════════════════════════════════════════
+   CARDS
+   ════════════════════════════════════════════ */
+.card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #E8E0D0;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 28;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 12, 0, 0, 4);
+}
+
+.card-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1B2B2B;
+    -fx-padding: 0 0 10 0;
+}
+
+/* ════════════════════════════════════════════
+   TABLE VIEW
+   ════════════════════════════════════════════ */
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E8E0D0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F0EAD8;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #3A4A4A;
+    -fx-font-size: 13px;
+    -fx-padding: 11 12 11 12;
+}
+
+.table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #F0EAD8 transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #FAF7F2;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #F5EDD0;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #1B2B2B;
+}
+
+/* ════════════════════════════════════════════
+   TAB PANE
+   ════════════════════════════════════════════ */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E8E0D0;
+    -fx-border-width: 0 0 2 0;
+}
+
+.tab {
+    -fx-background-color: transparent;
+    -fx-padding: 8 22 8 22;
+}
+
+.tab:selected {
+    -fx-background-color: transparent;
+    -fx-border-color: #C9A84C;
+    -fx-border-width: 0 0 3 0;
+}
+
+.tab .tab-label {
+    -fx-text-fill: #8A7A6A;
+    -fx-font-size: 13px;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: #C9A84C;
+    -fx-font-weight: bold;
+}
+
+/* ════════════════════════════════════════════
+   STATUS BADGES
+   ════════════════════════════════════════════ */
+.status-open {
+    -fx-background-color: #E8F5E9;
+    -fx-text-fill: #2E7D32;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 10 3 10;
+    -fx-background-radius: 12;
+}
+
+.status-in-progress {
+    -fx-background-color: #FFF8E1;
+    -fx-text-fill: #C9A84C;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 10 3 10;
+    -fx-background-radius: 12;
+}
+
+.status-pending {
+    -fx-background-color: #E8F5F0;
+    -fx-text-fill: #1B6A4A;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 10 3 10;
+    -fx-background-radius: 12;
+}
+
+.status-settled {
+    -fx-background-color: #F0EAD8;
+    -fx-text-fill: #5A4A2A;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 10 3 10;
+    -fx-background-radius: 12;
+}
+
+.status-cancelled {
+    -fx-background-color: #FDECEA;
+    -fx-text-fill: #C0392B;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 10 3 10;
+    -fx-background-radius: 12;
+}
+
+/* ════════════════════════════════════════════
+   DIALOGS
+   ════════════════════════════════════════════ */
+.dialog-pane {
+    -fx-background-color: #FFFFFF;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #F5F0E8;
+}
+
+.dialog-pane .content {
+    -fx-font-size: 13px;
+    -fx-text-fill: #1B2B2B;
+}
+
+/* ════════════════════════════════════════════
+   SCROLL BAR
+   ════════════════════════════════════════════ */
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #D8CEB8;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar:vertical .track,
+.scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+/* ════════════════════════════════════════════
+   LOGIN PAGE SPECIFIC
+   ════════════════════════════════════════════ */
+.login-root {
+    -fx-background-color: #F5F0E8;
+}
+
+.login-title {
+    -fx-font-size: 38px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1B3A3A;
+}
+
+.login-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #7A8A8A;
+}
+
+.login-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 14;
+    -fx-border-color: #E8E0D0;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 36 40 36 40;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 20, 0, 0, 6);
+}
+
+.login-heading {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1B2B2B;
+}
+
+/* ════════════════════════════════════════════
+   CONTENT AREA SHARED STYLES
+   ════════════════════════════════════════════ */
+.content-area {
+    -fx-background-color: #F5F0E8;
+    -fx-padding: 28;
+    -fx-spacing: 16;
+}
+
+.section-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10;
+    -fx-border-color: #E8E0D0;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-padding: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0, 0, 2);
+}
+
+/* ════════════════════════════════════════════
+   AVATAR CIRCLE (used in sidebar user area)
+   ════════════════════════════════════════════ */
+.avatar-circle {
+    -fx-background-color: #C9A84C;
+    -fx-background-radius: 50%;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-max-width: 40px;
+    -fx-max-height: 40px;
+    -fx-alignment: CENTER;
+}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.quickhire.ui.MasterController"
+      stylesheets="@../css/styles.css" prefWidth="1000" prefHeight="660">
+
+    <VBox fx:id="sidebarContainer" styleClass="sidebar"/>
+
+    <ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true"
+                style="-fx-background-color: #F5F0E8; -fx-background: #F5F0E8;">
+        <VBox style="-fx-background-color: #F5F0E8; -fx-padding: 28 32; -fx-spacing: 14;"
+              prefWidth="720">
+
+            <Label text="⚖️  Challenge Dispute" styleClass="top-bar-title"/>
+
+            <!-- Provider's dispute details -->
+            <VBox fx:id="disputeInfoBox" styleClass="section-card" spacing="8">
+                <Label text="Provider's Dispute"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #C0392B;"/>
+                <HBox spacing="10">
+                    <Label text="Job:"    style="-fx-font-weight: bold; -fx-min-width: 120; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="jobTitleLabel" style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Reason:" style="-fx-font-weight: bold; -fx-min-width: 120; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="disputeReasonLabel" wrapText="true" style="-fx-text-fill: #1B2B2B;"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Invoice Total:" style="-fx-font-weight: bold; -fx-min-width: 120; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="invoiceTotalLabel" style="-fx-text-fill: #C9A84C; -fx-font-weight: bold;"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Round:" style="-fx-font-weight: bold; -fx-min-width: 120; -fx-text-fill: #3A4A4A;"/>
+                    <Label fx:id="roundLabel" style="-fx-text-fill: #7A8A8A;"/>
+                </HBox>
+            </VBox>
+
+            <!-- Seeker's response form -->
+            <VBox styleClass="section-card" spacing="10">
+                <Label text="Your Counter-Argument" styleClass="form-label"/>
+                <TextArea fx:id="challengeArea"
+                          promptText="Explain why the invoice amount is correct or fair..."
+                          prefRowCount="4" wrapText="true"/>
+
+                <Label text="Your Proposed Settlement Amount (PKR) *" styleClass="form-label"/>
+                <TextField fx:id="proposedAmountField"
+                           promptText="Enter the amount you are willing to accept"/>
+
+                <Label text="(Enter the full invoice amount if you believe it is correct)"
+                       style="-fx-text-fill: #8A8A8A; -fx-font-size: 11px;"/>
+            </VBox>
+
+            <Label fx:id="errorLabel" styleClass="error-label" wrapText="true"/>
+
+            <!-- No dispute option -->
+            <VBox styleClass="section-card" spacing="6"
+                  style="-fx-border-color: #1E7A50; -fx-border-radius: 10; -fx-border-width: 1;">
+                <Label text="Alternatively — Accept the Dispute"
+                       style="-fx-font-weight: bold; -fx-text-fill: #1E7A50;"/>
+                <Label text="If you accept the provider's dispute, the job will be settled at the agreed amount or cancelled."
+                       wrapText="true" style="-fx-text-fill: #5A6A6A; -fx-font-size: 12px;"/>
+                <Button text="Accept Dispute (No Challenge)" onAction="#handleAcceptDispute"
+                        style="-fx-background-color: #1E7A50; -fx-text-fill: white;
+                               -fx-background-radius: 8; -fx-padding: 8 18;"/>
+            </VBox>
+
+            <HBox spacing="12">
+                <Button text="Submit Challenge" onAction="#handleSubmitChallenge"
+                        styleClass="btn-primary"/>
+                <Button text="Back to Dashboard" onAction="#handleBack"
+                        styleClass="btn-secondary"/>
+            </HBox>
+
+        </VBox>
+    </ScrollPane>
+</HBox>

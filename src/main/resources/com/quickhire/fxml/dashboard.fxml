@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.quickhire.ui.MasterController"
+      stylesheets="@../css/styles.css"
+      prefWidth="1000" prefHeight="660">
+
+    <VBox fx:id="sidebarContainer" styleClass="sidebar"/>
+
+    <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #F5F0E8;">
+
+        <!-- Top bar -->
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="12">
+            <Label fx:id="welcomeLabel" text="Welcome" styleClass="top-bar-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="roleLabel" text="" styleClass="top-bar-role-badge"/>
+        </HBox>
+
+        <!-- Tab pane -->
+        <TabPane fx:id="jobTabPane" VBox.vgrow="ALWAYS"
+                 tabClosingPolicy="UNAVAILABLE"
+                 style="-fx-background-color: #F5F0E8; -fx-padding: 16;">
+
+            <Tab text="Open / Pending">
+                <VBox spacing="12" style="-fx-padding: 14;">
+                    <TableView fx:id="openJobsTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colOpenTitle"    text="Title"    prefWidth="200"/>
+                            <TableColumn fx:id="colOpenCategory" text="Category" prefWidth="120"/>
+                            <TableColumn fx:id="colOpenLocation" text="Location" prefWidth="150"/>
+                            <TableColumn fx:id="colOpenRate"     text="Rate/hr"  prefWidth="90"/>
+                            <TableColumn fx:id="colOpenStatus"   text="Status"   prefWidth="110"/>
+                        </columns>
+                    </TableView>
+                    <Button text="View Details" styleClass="btn-primary"
+                            onAction="#handleViewOpenJob"/>
+                </VBox>
+            </Tab>
+
+            <Tab text="In Progress">
+                <VBox spacing="12" style="-fx-padding: 14;">
+                    <TableView fx:id="inProgressTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colProgTitle"    text="Title"    prefWidth="200"/>
+                            <TableColumn fx:id="colProgCategory" text="Category" prefWidth="120"/>
+                            <TableColumn fx:id="colProgLocation" text="Location" prefWidth="150"/>
+                            <TableColumn fx:id="colProgRate"     text="Rate/hr"  prefWidth="90"/>
+                            <TableColumn fx:id="colProgStatus"   text="Status"   prefWidth="110"/>
+                        </columns>
+                    </TableView>
+                    <Button text="View Details" styleClass="btn-primary"
+                            onAction="#handleViewProgressJob"/>
+                </VBox>
+            </Tab>
+
+            <Tab text="Completed / Settled">
+                <VBox spacing="12" style="-fx-padding: 14;">
+                    <TableView fx:id="completedTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colDoneTitle"    text="Title"    prefWidth="200"/>
+                            <TableColumn fx:id="colDoneCategory" text="Category" prefWidth="120"/>
+                            <TableColumn fx:id="colDoneLocation" text="Location" prefWidth="150"/>
+                            <TableColumn fx:id="colDoneRate"     text="Rate/hr"  prefWidth="90"/>
+                            <TableColumn fx:id="colDoneStatus"   text="Status"   prefWidth="110"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </VBox>
+</HBox>

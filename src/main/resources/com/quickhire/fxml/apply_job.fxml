@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.quickhire.ui.MasterController"
+      stylesheets="@../css/styles.css" prefWidth="1000" prefHeight="660">
+
+    <VBox fx:id="sidebarContainer" styleClass="sidebar"/>
+
+    <ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true"
+                style="-fx-background-color: #F5F0E8; -fx-background: #F5F0E8;">
+        <VBox style="-fx-background-color: #F5F0E8; -fx-padding: 28 32; -fx-spacing: 14;">
+
+            <Label text="Apply for Job" styleClass="top-bar-title"/>
+
+            <!-- Job details card -->
+            <VBox styleClass="section-card" spacing="7">
+                <Label fx:id="jobTitleLabel"
+                       style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #1B2B2B;"/>
+                <Label fx:id="jobCategoryLabel" style="-fx-text-fill: #5A6A6A;"/>
+                <Label fx:id="jobLocationLabel" style="-fx-text-fill: #5A6A6A;"/>
+                <Label fx:id="jobRateLabel"
+                       style="-fx-text-fill: #C9A84C; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                <Label fx:id="jobProviderLabel" style="-fx-text-fill: #5A6A6A;"/>
+                <Separator style="-fx-opacity: 0.4;"/>
+                <Label text="Description:" styleClass="form-label"/>
+                <TextArea fx:id="jobDescArea" editable="false" wrapText="true" prefRowCount="4"
+                          style="-fx-background-color: #FAF7F2;"/>
+            </VBox>
+
+            <VBox styleClass="section-card" spacing="10">
+                <Label text="Your Application Note (optional):" styleClass="form-label"/>
+                <TextArea fx:id="noteArea" promptText="Tell the provider why you are a good fit..."
+                          prefRowCount="3" wrapText="true"/>
+            </VBox>
+
+            <Label fx:id="errorLabel" styleClass="error-label" wrapText="true"/>
+
+            <HBox spacing="12">
+                <Button text="Submit Application"    onAction="#handleSubmit"             styleClass="btn-primary"/>
+                <Button text="View Provider Reviews" onAction="#handleViewProviderReviews" styleClass="btn-primary"/>
+                <Button text="Back to Find Jobs"     onAction="#handleBack"               styleClass="btn-secondary"/>
+            </HBox>
+        </VBox>
+    </ScrollPane>
+</HBox>
