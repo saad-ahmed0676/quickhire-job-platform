@@ -116,4 +116,4 @@ The login screen will launch on startup. Register a new account as either a Job 
 
 ## Authors
 
-Built by Saad Ahmed, Aon Mohammad, and a third teammate as a Software Design & Architecture (SDA) course project at FAST University Islamabad.
+Built by Saad Ahmed as a Software Design & Architecture (SDA) course project at FAST University Islamabad.
